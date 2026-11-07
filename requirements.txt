@@ -1,3 +1,11 @@
-pandas
-openpyxl
-pymongo
+# Batch (Étudiant 1)
+pandas>=2.2,<4
+openpyxl>=3.1,<4
+
+# MongoDB et dashboard (Étudiant 3)
+pymongo>=4.6,<5
+streamlit>=1.50,<2
+altair>=5,<7
+
+# Tests
+pytest>=8

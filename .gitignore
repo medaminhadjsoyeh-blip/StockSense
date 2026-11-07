@@ -9,3 +9,7 @@ __pycache__/
 # Donnees volumineuses
 data/raw/*
 data/processed/*
+
+# Sorties locales (MapReduce local, inventaire généré sur le dataset complet)
+build/
+data/inventory.csv
