@@ -20,7 +20,11 @@ TEST_URI = os.environ.get("MONGO_TEST_URI", "mongodb://localhost:27017/")
 def mongo_client():
     client = get_client(Settings(mongo_uri=TEST_URI, mongo_db="unused", server_timeout_ms=1500))
     if not ping(client):
-        pytest.skip(f"MongoDB indisponible sur {TEST_URI} (docker compose up -d)")
+        message = f"MongoDB indisponible sur {TEST_URI} (docker compose up -d)"
+        # En CI, un serveur absent doit faire échouer la suite, pas l'ignorer.
+        if os.environ.get("MONGO_REQUIRED") == "1":
+            pytest.fail(message)
+        pytest.skip(message)
     yield client
     client.close()
 

@@ -144,7 +144,11 @@ python -m pytest
   dashboard (valeurs affichées comparées à un calcul pandas indépendant).
 
 Les tests utilisant MongoDB créent une base jetable et sont ignorés si le
-serveur n'est pas joignable (`MONGO_TEST_URI` pour une autre adresse).
+serveur n'est pas joignable (`MONGO_TEST_URI` pour une autre adresse ;
+`MONGO_REQUIRED=1` pour échouer au lieu d'ignorer).
+
+Intégration continue : `.github/workflows/tests.yml` lance la suite complète
+sur chaque pull request et sur `master`, avec un service MongoDB 7.0.
 
 ## 8. Partie batch (Étudiant 1)
 
