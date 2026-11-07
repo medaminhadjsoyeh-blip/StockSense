@@ -183,3 +183,15 @@ dashboard.
   vente des 30 derniers jours se maintient.
 - Les dates sont traitées comme UTC faute d'information de fuseau dans le
   dataset source.
+- Les contrôles vérifient que les modules sont **cohérents entre eux**, pas
+  que le nettoyage est juste : deux ventes géantes annulées restent comptées
+  (245 653,20 £, voir README §10) et passent tous les contrôles.
+
+## 7. Résultats sur UCI Online Retail
+
+| Mesure | Valeur |
+|---|---:|
+| `sales_daily` | 276 148 documents (01/12/2010 – 09/12/2011) |
+| Chargement complet (`load_batch` avec transactions et inventaire) | 300 257 documents, ≈ 22 s |
+| Contrôles `verify --transactions` | 13/13, écart max CA par produit 0,00 £ |
+| Requêtes du dashboard (période complète, sans cache) | 0,3 à 0,8 s ; 3 ms pour un produit |

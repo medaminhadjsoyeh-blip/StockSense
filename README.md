@@ -117,6 +117,10 @@ Sur UCI Online Retail (`python -m database.verify`) :
 | Clients identifiés | 4 338 |
 | Chiffre d'affaires total | 10 666 684,54 £ |
 | Documents MongoDB (résultats MapReduce + rapport) | 16 115 |
+| Documents `sales_daily` (jour × produit) | 276 148 |
+| Total chargé avec transactions et inventaire | 300 257 documents, ≈ 22 s |
+| Alertes `LOW_STOCK` (inventaire simulé, graine 42) | 150 |
+| Contrôles de cohérence avec recalcul CSV | 13/13 |
 
 Top 10 par chiffre d'affaires : `DOT`, `22423`, `23843`, `85123A`, `47566`,
 `85099B`, `23166`, `M`, `POST`, `23084`. `DOT`, `M` et `POST` sont des frais
@@ -157,6 +161,16 @@ résultat. Détails : [docs/hadoop_mapreduce.md](docs/hadoop_mapreduce.md).
 - [Données et échantillons](data/README.md)
 
 ## 10. Limites
+
+- **Commandes annulées conservées** : le nettoyage retire les factures `C…`
+  mais garde la vente d'origine qu'elles annulent. Deux commandes géantes
+  annulées quelques minutes après leur saisie restent donc comptées :
+  `581483` (80 995 × `23843`, 168 469,60 £, client 16446) et `541431`
+  (74 215 × `23166`, 77 183,60 £, client 12346), soit **245 653,20 £ (2,3 %)**.
+  Elles placent `23843` 3ᵉ du Top 10, expliquent le pic du 09/12/2011 et la
+  totalité du montant du client 12346. Correction possible dans
+  `scripts/clean_data.py` : apparier chaque ligne `C…` à la vente de même
+  client, produit et quantité opposée, et retirer les deux.
 
 - L'inventaire est simulé : les transactions ne donnent ni stock initial ni réapprovisionnement.
 - La couverture de stock suppose un rythme de vente constant (moyenne des 30 derniers jours).

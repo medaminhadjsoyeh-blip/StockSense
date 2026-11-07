@@ -119,8 +119,10 @@ with tab_overview:
             return percent_delta(current[key], previous[key]) if has_previous else None
 
         avg_line = current["revenue"] / current["transaction_count"] if current["transaction_count"] else None
-        cols = st.columns(5)
-        cols[0].metric("Chiffre d'affaires", money(current["revenue"]), delta("revenue"))
+        cols = st.columns([1.5, 1.2, 1, 1, 1])
+        # Sans centimes au-delà de 100 000 £ : la valeur tient dans la carte.
+        revenue_decimals = 0 if current["revenue"] >= 100_000 else 2
+        cols[0].metric("Chiffre d'affaires", money(current["revenue"], revenue_decimals), delta("revenue"))
         cols[1].metric("Quantité vendue", number(current["quantity"]), delta("quantity"))
         cols[2].metric("Lignes de vente", number(current["transaction_count"]), delta("transaction_count"))
         cols[3].metric("Produits vendus", number(current["products"]))
