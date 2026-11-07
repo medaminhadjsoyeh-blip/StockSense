@@ -1,0 +1,16 @@
+{
+    "source": "UCI Online Retail",
+    "initial_rows": 541909,
+    "final_rows": 530104,
+    "removed_rows": 11805,
+    "cancelled_invoices_detected": 9288,
+    "non_positive_quantity_detected": 10624,
+    "non_positive_price_detected": 2517,
+    "missing_customer_before_cleaning": 135080,
+    "missing_description_before_cleaning": 1454,
+    "missing_customer_after_cleaning": 132220,
+    "missing_description_after_cleaning": 0,
+    "total_revenue": 10666684.54,
+    "unique_products": 3922,
+    "unique_customers": 4338
+}

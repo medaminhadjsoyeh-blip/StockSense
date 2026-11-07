@@ -1,0 +1,52 @@
+[
+  {
+    "rank": 1,
+    "product_id": "DOT",
+    "total_revenue": 206248.77
+  },
+  {
+    "rank": 2,
+    "product_id": "22423",
+    "total_revenue": 174484.74
+  },
+  {
+    "rank": 3,
+    "product_id": "23843",
+    "total_revenue": 168469.6
+  },
+  {
+    "rank": 4,
+    "product_id": "85123A",
+    "total_revenue": 104518.8
+  },
+  {
+    "rank": 5,
+    "product_id": "47566",
+    "total_revenue": 99504.33
+  },
+  {
+    "rank": 6,
+    "product_id": "85099B",
+    "total_revenue": 94340.05
+  },
+  {
+    "rank": 7,
+    "product_id": "23166",
+    "total_revenue": 81700.92
+  },
+  {
+    "rank": 8,
+    "product_id": "M",
+    "total_revenue": 78110.27
+  },
+  {
+    "rank": 9,
+    "product_id": "POST",
+    "total_revenue": 78101.88
+  },
+  {
+    "rank": 10,
+    "product_id": "23084",
+    "total_revenue": 66964.99
+  }
+]
