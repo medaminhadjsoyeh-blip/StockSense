@@ -10,6 +10,7 @@ __pycache__/
 data/raw/*
 data/processed/*
 
-# Sorties locales (MapReduce local, inventaire généré sur le dataset complet)
+# Sorties locales
 build/
-data/inventory.csv
+checkpoints/
+spark.log
