@@ -9,3 +9,6 @@ altair>=5,<7
 
 # Tests
 pytest>=8
+
+# Kafka (Étudiant 2)
+kafka-python>=2.0,<3
