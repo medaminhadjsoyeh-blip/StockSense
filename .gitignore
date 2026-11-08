@@ -9,3 +9,5 @@ __pycache__/
 # Donnees volumineuses
 data/raw/*
 data/processed/*
+checkpoints/
+spark.log
