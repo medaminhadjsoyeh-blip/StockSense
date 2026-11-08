@@ -9,3 +9,8 @@ __pycache__/
 # Donnees volumineuses
 data/raw/*
 data/processed/*
+
+# Sorties locales
+build/
+checkpoints/
+spark.log
